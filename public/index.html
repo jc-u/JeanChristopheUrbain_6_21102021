@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Fisheye</title>
+		<link rel="stylesheet" href="./css/normalize.css" />
+		<link rel="stylesheet" href="./css/styles.css" />
+	</head>
+	<body class="index">
+		<!-- HEADER -->
+
+		<header>
+			<!-- LOGO -->
+
+			<div class="header__logo">
+				<a href="index.html" title="HomePage"
+					><img src="./assets/images/logo.png" alt="FisheEye Home Page"
+				/></a>
+			</div>
+			<nav
+				class="filters"
+				aria-label="photographer categories"
+				role="navigation"
+			>
+				<ul id="tags"></ul>
+			</nav>
+		</header>
+
+		<!-- NAV -->
+
+		<main>
+			<h1>Nos photographes</h1>
+			<div id="photographers__contenu">
+				<a href="#photographers">Passer au contenu</a>
+			</div>
+			<section id="photographers" aria-label="photographers"></section>
+		</main>
+
+		<!-- Models -->
+		<script src="./js/List.js"></script>
+
+		<!-- Entry point -->
+		<script src="./js/tools.js"></script>
+		<script src="./js/index.js" type="module"></script>
+	</body>
+</html>

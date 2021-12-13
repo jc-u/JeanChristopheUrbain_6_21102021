@@ -1,0 +1,174 @@
+main {
+	margin-top: 100px;
+	h1 {
+		position: absolute;
+		right: 10px;
+		top: 23px;
+	}
+	#photographers__contenu {
+		display: none;
+	}
+
+	#photographers {
+		.sectionPhotographers__photographer {
+			.photographer {
+				.photographer__photo {
+					width: 200px;
+					height: 200px;
+					border-radius: 100%;
+					margin: 0 auto;
+					overflow: hidden;
+
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+					}
+					margin-bottom: 30px;
+				}
+
+				.photographer__hashtag {
+					margin-top: 10px;
+					margin-bottom: 30px;
+					.filter {
+						a {
+							margin: 3px;
+							font-size: 12px;
+							font-weight: medium;
+							li {
+								padding: 2px 5px;
+								border-radius: 10px;
+
+								&:hover {
+									background-color: $primaire1;
+									color: white;
+									transition: 300ms;
+								}
+							}
+
+							.active {
+								background-color: $primaire1;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 1280px) {
+	main {
+		margin-top: 50px;
+
+		h1 {
+			position: absolute;
+			right: 0px;
+			top: 30px;
+		}
+		#photographers__contenu {
+			display: block;
+			opacity: 0;
+			position: fixed;
+			top: 30px;
+			left: 0;
+			right: 0;
+			background-color: #db8876;
+			padding: 10px;
+			width: 190px;
+			margin: 0 auto;
+			border-radius: 10px;
+
+			a {
+				display: block;
+				font-weight: bold;
+				font-size: 18px;
+				text-decoration: none;
+				color: black;
+			}
+		}
+
+		#photographers {
+			display: grid;
+			grid-template-rows: 1fr 1fr;
+			gap: 0px 0px;
+			grid-auto-flow: row;
+			justify-content: space-between;
+			grid-template-areas:
+				'. . .'
+				'. . .'
+				'. . .';
+		}
+
+		.sectionPhotographers__photographer {
+			width: 263px;
+		}
+	}
+}
+
+@media (min-width: 1366px) {
+	body {
+		width: 1270px;
+		margin: 0 auto;
+		main {
+			#photographers__contenu {
+			}
+
+			#photographers {
+				.sectionPhotographers__photographer {
+					margin-bottom: 50px;
+				}
+			}
+		}
+	}
+}
+@media (min-width: 1400px) {
+	main {
+		#photographers__contenu {
+		}
+
+		#photographers {
+			.sectionPhotographers__photographer {
+			}
+		}
+	}
+}
+@media (min-width: 1440px) {
+	main {
+		#photographers__contenu {
+		}
+
+		#photographers {
+			.sectionPhotographers__photographer {
+			}
+		}
+	}
+}
+@media (min-width: 1600px) {
+	.index {
+		width: 1480px;
+		main {
+			#photographers__contenu {
+			}
+
+			#photographers {
+				.sectionPhotographers__photographer {
+				}
+			}
+		}
+	}
+}
+@media (min-width: 1920px) {
+	.index {
+		width: 1780px;
+		main {
+			#photographers__contenu {
+			}
+
+			#photographers {
+				.sectionPhotographers__photographer {
+				}
+			}
+		}
+	}
+}

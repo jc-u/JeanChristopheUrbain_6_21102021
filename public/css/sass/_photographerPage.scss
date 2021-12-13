@@ -1,0 +1,516 @@
+.photographer-page {
+	margin-top: 0;
+	.photographer-page__header {
+		display: flex;
+		padding-bottom: 40px;
+
+		.photographer-page__header__contenu,
+		h2,
+		h3,
+		h4 {
+			text-align: left;
+		}
+
+		.photographer-page__header__contenu__hashtag {
+			justify-content: start;
+			li {
+				margin-right: 5px;
+				border-radius: 10px;
+
+				&:hover {
+					background-color: $primaire1;
+					transition: 300ms;
+					a {
+						color: white;
+					}
+				}
+			}
+			a {
+				font-size: 12px;
+				font-weight: medium;
+				text-decoration: none;
+				color: $primaire1;
+			}
+			.active {
+				background-color: $primaire1;
+				color: white;
+			}
+		}
+
+		.photographer-page__contact {
+			position: fixed;
+			left: 0;
+			right: 0;
+			bottom: 40px;
+			width: 170px;
+			height: 35px;
+			margin: 0 auto;
+			background-color: $primaire1;
+			color: white;
+			font-weight: bold;
+			font-size: 18px;
+			font-family: 'DM Sans', sans-serif;
+			border-radius: 5px;
+			border: none;
+			cursor: pointer;
+			z-index: 1;
+
+			&:hover {
+				color: black;
+				background-color: #db8876;
+				transition: 350ms;
+			}
+		}
+
+		.photographer-page__photo {
+			width: 100px;
+			height: 100px;
+			border-radius: 100%;
+			margin: 0 auto;
+			overflow: hidden;
+
+			img {
+				width: 100%;
+				height: 100%;
+				-o-object-fit: cover;
+				object-fit: cover;
+			}
+		}
+	}
+
+	.photographer-page__filter {
+		display: none;
+	}
+	#gallery {
+		.photographer-page__gallery__card {
+			img,
+			video {
+				width: 100%;
+				height: 218px;
+				object-fit: cover;
+				border-radius: 5px;
+			}
+			.photographer-page__gallery__media__footer {
+				position: relative;
+				margin: 10px 0;
+
+				.photographer-page__gallery__media__footer__figcaption {
+					font-family: 'DM Sans', sans-serif;
+					font-size: 14px;
+					color: $primaire1;
+				}
+
+				.photographer-page__gallery__media__footer__like-section {
+					display: flex;
+					position: absolute;
+					right: 0;
+					top: 0;
+
+					.photographer-page__gallery__media__footer__like-section-counter {
+						font-family: 'DM Sans', sans-serif;
+						font-size: 14px;
+						color: $primaire1;
+						margin-right: 10px;
+					}
+
+					.photographer-page__gallery__media__footer__like-section-button {
+						border: none;
+						background-color: white;
+						cursor: pointer;
+
+						.fa-heart {
+							color: $primaire1;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.photographer-page__footer-section {
+		display: none;
+	}
+}
+#contact__modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	background: rgba(196, 196, 196, 0.4);
+
+	.modal {
+		border-radius: 5px;
+		background-color: #db8876;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		padding: 15px 35px;
+		position: relative;
+		height: 100vh;
+
+		.modal__title {
+			width: 100%;
+			h2 {
+				font-size: 36px;
+				color: black;
+				font-weight: normal;
+				text-align: left;
+				margin: 0;
+				padding: 0;
+				margin-bottom: 20px;
+			}
+
+			i {
+				cursor: pointer;
+				position: absolute;
+				top: 20px;
+				right: 30px;
+				font-size: 32px;
+				color: white;
+			}
+		}
+
+		form {
+			display: flex;
+			width: 100%;
+			flex-direction: column;
+			align-items: flex-start;
+
+			div {
+				display: flex;
+				flex-direction: column;
+				width: 100%;
+				align-items: self-start;
+
+				label {
+					color: #312e2e;
+					font-size: 24px;
+
+					font-family: 'DM Sans', sans-serif;
+				}
+
+				input {
+					height: 52px;
+					font-size: 24px;
+					width: 100%;
+					border: none;
+					border-radius: 5px;
+					font-family: 'DM Sans', sans-serif;
+					margin-bottom: 20px;
+				}
+
+				textarea {
+					height: 184px;
+					width: 100%;
+					border: none;
+					border-radius: 5px;
+					overflow: auto;
+					font-family: 'DM Sans', sans-serif;
+					margin-bottom: 20px;
+				}
+			}
+			button {
+				font-size: 20px;
+				font-weight: bold;
+				color: white;
+				width: 170px;
+				height: 35px;
+				border: none;
+				background-color: #901c1c;
+				border-radius: 5px;
+				cursor: pointer;
+				margin: 0 auto;
+			}
+		}
+	}
+}
+
+@media (min-width: 1280px) {
+	.photographer-page {
+		.photographer-page__header {
+			background-color: #fafafa;
+			padding-top: 70px;
+			border-radius: 5px;
+			position: relative;
+
+			.photographer-page__header__contenu,
+			h2,
+			h3,
+			h4,
+			ul {
+				margin-bottom: 25px;
+				margin-left: 50px;
+			}
+
+			.photographer-page__header__contenu__hashtag {
+				li {
+					border-radius: 10px;
+				}
+			}
+
+			.photographer-page__contact {
+				position: unset;
+				height: 69px;
+				margin: 0 25px;
+			}
+
+			.photographer-page__photo {
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				right: 50px;
+
+				img {
+				}
+			}
+		}
+
+		.photographer-page__filter {
+			display: flex;
+			position: relative;
+			margin-top: 20px;
+			margin-bottom: 60px;
+			align-items: center;
+
+			i {
+				position: absolute;
+				right: 10px;
+			}
+			label {
+				font-family: 'DM Sans', sans-serif;
+				font-weight: bold;
+				font-size: 18px;
+				margin-right: 15px;
+			}
+
+			#select__link {
+				color: white;
+
+				.select__link__content {
+					width: 171px;
+					height: 69px;
+					background-color: #911c1c;
+					border: none;
+					font-size: 18px;
+					display: flex;
+					padding-left: 20px;
+					align-items: center;
+					color: #fff;
+					position: relative;
+					cursor: pointer;
+					border-radius: 5px;
+					font-weight: bold;
+				}
+			}
+
+			.filterMenu {
+				display: none;
+				position: absolute;
+				top: 0;
+				left: 87px;
+				z-index: 1;
+
+				li {
+					width: 172px;
+					height: 69px;
+					background-color: #911c1c;
+					border: none;
+					font-size: 18px;
+					display: flex;
+					padding-left: 20px;
+					align-items: center;
+					color: #fff;
+					position: relative;
+					cursor: pointer;
+					&:first-child {
+						border-top-right-radius: 5px;
+						border-top-left-radius: 5px;
+					}
+					&:last-child {
+						border-bottom-right-radius: 5px;
+						border-bottom-left-radius: 5px;
+					}
+					&:not(:first-child):before {
+						content: '';
+						width: 150px;
+						height: 1px;
+						background-color: #fff;
+						position: absolute;
+						top: 0;
+					}
+
+					&:hover {
+						color: black;
+						background-color: #db8876;
+					}
+				}
+			}
+		}
+		#gallery {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			.photographer-page__gallery__card {
+				img,
+				video {
+					width: 350px;
+					height: 300px;
+				}
+				.photographer-page__gallery__media__footer {
+					margin-bottom: 30px;
+					.photographer-page__gallery__media__footer__figcaption {
+					}
+
+					.photographer-page__gallery__media__footer__like-section {
+						.photographer-page__gallery__media__footer__like-section-counter {
+						}
+
+						.photographer-page__gallery__media__footer__like-section-button {
+							.fa-heart {
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	#contact__modal {
+		display: none;
+		position: fixed;
+		z-index: 1;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		overflow: auto;
+		background: rgba(196, 196, 196, 0.4);
+
+		.modal {
+			border-radius: 5px;
+			background-color: #db8876;
+			width: 50%;
+			max-width: 670px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			padding: 15px 35px;
+			margin: 5% auto;
+			position: relative;
+			height: 900px;
+
+			.modal__title {
+				width: 100%;
+				h2 {
+					font-size: 64px;
+					color: black;
+					font-weight: normal;
+					text-align: left;
+					margin: 0;
+					padding: 0;
+					margin-bottom: 20px;
+				}
+
+				i {
+					cursor: pointer;
+					position: absolute;
+					top: 20px;
+					right: 30px;
+					font-size: 72px;
+					color: white;
+				}
+			}
+
+			form {
+				display: flex;
+				width: 100%;
+				flex-direction: column;
+				align-items: flex-start;
+
+				div {
+					display: flex;
+					flex-direction: column;
+					width: 100%;
+					align-items: self-start;
+
+					label {
+						color: #312e2e;
+						font-size: 36px;
+						height: 60px;
+						font-family: 'DM Sans', sans-serif;
+					}
+
+					input {
+						height: 68px;
+						font-size: 36px;
+						width: 100%;
+						border: none;
+						border-radius: 5px;
+						font-family: 'DM Sans', sans-serif;
+					}
+
+					textarea {
+						height: 170px;
+						width: 100%;
+						border: none;
+						border-radius: 5px;
+						overflow: auto;
+						font-family: 'DM Sans', sans-serif;
+					}
+				}
+				button {
+					font-size: 20px;
+					font-weight: bold;
+					color: white;
+					padding: 11px;
+					width: 170px;
+					height: 70px;
+					border: none;
+					background-color: #901c1c;
+					border-radius: 5px;
+					cursor: pointer;
+					margin: 0;
+				}
+			}
+		}
+	}
+
+	.photographer-page__footer-section {
+		display: block;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+
+		.photographer-page__footer {
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+			width: 376px;
+			height: 69px;
+			background-color: #db8876;
+			border-radius: 5px 5px 0 0;
+
+			.photographer-page__footer__aside {
+				display: flex;
+				align-items: center;
+				font-size: 24px;
+
+				.fa-heart {
+					margin-left: 5px;
+					display: inline-block;
+					transform: scale(0.875, 1);
+				}
+			}
+			p {
+				font-size: 24px;
+			}
+		}
+	}
+}
