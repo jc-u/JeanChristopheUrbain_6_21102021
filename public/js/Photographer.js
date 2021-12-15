@@ -11,7 +11,7 @@
  * @param {string} portrait - the portrait of a photographer
  */
 class Photographer {
-	constructor(data, likes) {
+	constructor(data) {
 		this.name = data.name;
 		this.id = data.id;
 		this.city = data.city;

@@ -1,5 +1,6 @@
 import Portfolio from './Portfolio.js';
 import Photographer from './Photographer.js';
+import Slider from './Slider.js';
 
 /**
  * @const id - Get id in params URL
@@ -48,4 +49,20 @@ fetch('./data/FishEyeData.json')
 		function closeModal() {
 			modal.style.display = 'none';
 		}
+
+		// SLIDER
+
+		const gallerySection = document.getElementById('gallery');
+
+		const links = Array.from(
+			gallerySection.querySelectorAll('img[src$=".jpg"],source[src$=".mp4"]')
+		);
+
+		const slider = links.map((link) => link.getAttribute('src'));
+		links.forEach((link) => {
+			link.addEventListener('click', (e) => {
+				e.preventDefault();
+				new Slider(e.currentTarget.getAttribute('src'), gallery);
+			});
+		});
 	});

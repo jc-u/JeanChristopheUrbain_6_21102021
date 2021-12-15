@@ -495,127 +495,6 @@ main #photographers .sectionPhotographers__photographer .photographer .photograp
   display: none;
 }
 
-#contact__modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  overflow: auto;
-  background: rgba(196, 196, 196, 0.4);
-}
-
-#contact__modal .modal {
-  border-radius: 5px;
-  background-color: #db8876;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 15px 35px;
-  position: relative;
-  height: 100vh;
-}
-
-#contact__modal .modal .modal__title {
-  width: 100%;
-}
-
-#contact__modal .modal .modal__title h2 {
-  font-size: 36px;
-  color: black;
-  font-weight: normal;
-  text-align: left;
-  margin: 0;
-  padding: 0;
-  margin-bottom: 20px;
-}
-
-#contact__modal .modal .modal__title i {
-  cursor: pointer;
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 32px;
-  color: white;
-}
-
-#contact__modal .modal form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-}
-
-#contact__modal .modal form div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 100%;
-  -webkit-box-align: self-start;
-      -ms-flex-align: self-start;
-          align-items: self-start;
-}
-
-#contact__modal .modal form div label {
-  color: #312e2e;
-  font-size: 24px;
-  font-family: 'DM Sans', sans-serif;
-}
-
-#contact__modal .modal form div input {
-  height: 52px;
-  font-size: 24px;
-  width: 100%;
-  border: none;
-  border-radius: 5px;
-  font-family: 'DM Sans', sans-serif;
-  margin-bottom: 20px;
-}
-
-#contact__modal .modal form div textarea {
-  height: 184px;
-  width: 100%;
-  border: none;
-  border-radius: 5px;
-  overflow: auto;
-  font-family: 'DM Sans', sans-serif;
-  margin-bottom: 20px;
-}
-
-#contact__modal .modal form button {
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-  width: 170px;
-  height: 35px;
-  border: none;
-  background-color: #901c1c;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 0 auto;
-}
-
 @media (min-width: 1280px) {
   .photographer-page .photographer-page__header {
     background-color: #fafafa;
@@ -750,6 +629,168 @@ main #photographers .sectionPhotographers__photographer .photographer .photograp
   .photographer-page #gallery .photographer-page__gallery__card .photographer-page__gallery__media__footer {
     margin-bottom: 30px;
   }
+  .photographer-page__footer-section {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  }
+  .photographer-page__footer-section .photographer-page__footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    width: 376px;
+    height: 69px;
+    background-color: #db8876;
+    border-radius: 5px 5px 0 0;
+  }
+  .photographer-page__footer-section .photographer-page__footer .photographer-page__footer__aside {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: 24px;
+  }
+  .photographer-page__footer-section .photographer-page__footer .photographer-page__footer__aside .fa-heart {
+    margin-left: 5px;
+    display: inline-block;
+    -webkit-transform: scale(0.875, 1);
+            transform: scale(0.875, 1);
+  }
+  .photographer-page__footer-section .photographer-page__footer p {
+    font-size: 24px;
+  }
+}
+
+#contact__modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background: rgba(196, 196, 196, 0.4);
+}
+
+#contact__modal .modal {
+  border-radius: 5px;
+  background-color: #db8876;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px 35px;
+  position: relative;
+  height: 100vh;
+}
+
+#contact__modal .modal .modal__title {
+  width: 100%;
+}
+
+#contact__modal .modal .modal__title h2 {
+  font-size: 36px;
+  color: black;
+  font-weight: normal;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+#contact__modal .modal .modal__title i {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 32px;
+  color: white;
+}
+
+#contact__modal .modal form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+#contact__modal .modal form div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  -webkit-box-align: self-start;
+      -ms-flex-align: self-start;
+          align-items: self-start;
+}
+
+#contact__modal .modal form div label {
+  color: #312e2e;
+  font-size: 24px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+#contact__modal .modal form div input {
+  height: 52px;
+  font-size: 24px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  font-family: 'DM Sans', sans-serif;
+  margin-bottom: 20px;
+}
+
+#contact__modal .modal form div textarea {
+  height: 184px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  overflow: auto;
+  font-family: 'DM Sans', sans-serif;
+  margin-bottom: 20px;
+}
+
+#contact__modal .modal form button {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  width: 170px;
+  height: 35px;
+  border: none;
+  background-color: #901c1c;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+@media (min-width: 1280px) {
   #contact__modal {
     display: none;
     position: fixed;
@@ -862,42 +903,59 @@ main #photographers .sectionPhotographers__photographer .photographer .photograp
     cursor: pointer;
     margin: 0;
   }
-  .photographer-page__footer-section {
-    display: block;
-    position: fixed;
-    bottom: 0;
-    right: 0;
+}
+
+.slider {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background: rgba(196, 196, 196, 0.4);
+}
+
+.slider .slider__container {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.slider .slider__container img {
+  width: 289px;
+  height: 248px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.slider .slider__container p {
+  color: #901c1c;
+  width: 289px;
+  margin-top: 10px;
+}
+
+@media (min-width: 1280px) {
+  .slider .slider__container img {
+    width: 1050px;
+    height: 900px;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
-  .photographer-page__footer-section .photographer-page__footer {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    width: 376px;
-    height: 69px;
-    background-color: #db8876;
-    border-radius: 5px 5px 0 0;
-  }
-  .photographer-page__footer-section .photographer-page__footer .photographer-page__footer__aside {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    font-size: 24px;
-  }
-  .photographer-page__footer-section .photographer-page__footer .photographer-page__footer__aside .fa-heart {
-    margin-left: 5px;
-    display: inline-block;
-    -webkit-transform: scale(0.875, 1);
-            transform: scale(0.875, 1);
-  }
-  .photographer-page__footer-section .photographer-page__footer p {
+  .slider .slider__container p {
+    width: 1050px;
     font-size: 24px;
   }
 }
