@@ -2,7 +2,7 @@
 
 # Projet 6 - Développeur Front-End
 
-[Page disponible sur GitHub Pages](https://jc-u.github.io/JeanChristopheUrbain_6_21102021/)
+[Page disponible sur GitHub Pages](https://jc-u.github.io/JeanChristopheUrbain_6_21102021/public)
 
 ## Créez un site accessible pour une plateforme de photographes
 
