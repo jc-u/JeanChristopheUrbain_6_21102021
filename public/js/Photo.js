@@ -18,21 +18,21 @@ class Photo extends Media {
 	 */
 	render() {
 		return `
-		<figure class="photographer-page__gallery__card">
+		<figure class="photographer-page__gallery__card data-id="${this.id}">
 			<img class="photographer-page__gallery__media" src="./assets/medias/${
 				this.photographer.id
 			}/${this.src}"/>
-				<footer class="photographer-page__gallery__media__footer">
+			<footer class="photographer-page__gallery__media__footer">
 				<figcaption class="photographer-page__gallery__media__footer__figcaption">${
 					this.title
 				}</figcaption>
-					<div class="photographer-page__gallery__media__footer__like-section">
-						<p class="photographer-page__gallery__media__footer__like-section-counter" data-media-id="${
-							this.id
-						}">${this.likes}</p>
+				<div class="photographer-page__gallery__media__footer__like-section">
+					<p class="photographer-page__gallery__media__footer__like-section-counter" data-media-id="${
+						this.id
+					}">${this.likes}</p>
 						${this.renderLikeButton()}
-					</div>
-				</footer>
+				</div>
+			</footer>
 		</figure>
 		`;
 	}

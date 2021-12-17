@@ -83,44 +83,10 @@ class Photographer {
 				)
 				.join(' ')}</ul>
 		</div>
-	<button class="photographer-page__contact">Contactez-moi</button>
-	<div class="photographer-page__photo">
-		<img src="./assets/images/${this.portrait}"
-	</div>
-	</div>`;
-	}
-
-	/**
-	 * Create total Likes section with function totalLikes
-	 * @returns {string} Return user total likes
-	 */
-
-	renderTotalLikes() {
-		return `
-		<section class="photographer-page__footer">
-				<aside class="photographer-page__footer__aside">
-					<p class="photographer-page__footer__aside__total-likes" aria-label="Nombre total de j'aime ${this.totalLikes()}">${this.totalLikes()}</p>
-					<i class="fas fa-heart" aria-hidden="true"></i>
-				</aside>
-				<p class="photographer-page__footer__price" tabindex="7" aria-label="Tarif du photographe ${
-					this.price
-				} euro par jour">${this.price}€/jour</p>
-		</section>
-		`;
-	}
-
-	// Calculate the total number of likes for each listen on a photographer's like
-
-	totalLikes() {
-		const totalLikes = document.querySelectorAll(
-			'.photographer-page__gallery__media__footer__like-section-counter'
-		);
-		let likeSum = 0;
-		totalLikes.forEach(function (like) {
-			let likeUnit = Number(like.textContent);
-			likeSum += likeUnit;
-		});
-		return likeSum;
+		<button class="photographer-page__contact">Contactez-moi</button>
+		<div class="photographer-page__photo">
+			<img src="./assets/images/${this.portrait}"
+		</div>`;
 	}
 }
 

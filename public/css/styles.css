@@ -547,6 +547,7 @@ main #photographers .sectionPhotographers__photographer .photographer .photograp
   }
   .photographer-page .photographer-page__filter #select__link {
     color: white;
+    border: none;
   }
   .photographer-page .photographer-page__filter #select__link .select__link__content {
     width: 171px;
@@ -939,12 +940,46 @@ main #photographers .sectionPhotographers__photographer .photographer .photograp
   height: 248px;
   -o-object-fit: cover;
      object-fit: cover;
+  border-radius: 5px;
 }
 
 .slider .slider__container p {
   color: #901c1c;
   width: 289px;
   margin-top: 10px;
+}
+
+.slider .slider__next {
+  background: url("../assets/icons/chevron-right-solid.svg") center center/100% 100%;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  right: 20px;
+  text-indent: -10000px;
+  top: 50%;
+  width: 13px;
+}
+
+.slider .slider__previous {
+  background: url("../assets/icons/chevron-left-solid.svg") center center/100% 100%;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  left: 20px;
+  text-indent: -10000px;
+  top: 50%;
+  width: 13px;
+}
+
+.slider .slider__close {
+  background: url(../assets/icons/times-solid.svg) center center/100% 100% no-repeat;
+  border: none;
+  position: fixed;
+  right: 20px;
+  top: 31%;
+  width: 13px;
+  text-indent: -10000px;
+  z-index: 12;
 }
 
 @media (min-width: 1280px) {
@@ -957,6 +992,39 @@ main #photographers .sectionPhotographers__photographer .photographer .photograp
   .slider .slider__container p {
     width: 1050px;
     font-size: 24px;
+  }
+  .slider .slider__next {
+    background: url("../assets/icons/chevron-right-solid.svg") center center/100% 100%;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    right: 50px;
+    text-indent: -10000px;
+    top: 50%;
+    width: 48px;
+    height: 29px;
+  }
+  .slider .slider__previous {
+    background: url("../assets/icons/chevron-left-solid.svg") center center/100% 100%;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    left: 40px;
+    text-indent: -10000px;
+    top: 50%;
+    width: 48px;
+    height: 29px;
+  }
+  .slider .slider__close {
+    background: url(../assets/icons/times-solid.svg) center center/100% 100% no-repeat;
+    border: none;
+    position: fixed;
+    right: 50px;
+    top: 0;
+    width: 42px;
+    height: 42px;
+    text-indent: -10000px;
+    z-index: 12;
   }
 }
 /*# sourceMappingURL=styles.css.map */

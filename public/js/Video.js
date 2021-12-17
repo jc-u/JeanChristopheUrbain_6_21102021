@@ -21,10 +21,10 @@ class Video extends Media {
 	render() {
 		return `
 			<figure class="photographer-page__gallery__card">
-            <video controls class="photographer-page__gallery__media focus__element-secondary">
-                <source src="./assets/medias/${this.photographer.id}/${
-			this.src
-		}"/>
+            <video>
+                <source class="photographer-page__gallery__media" src="./assets/medias/${
+									this.photographer.id
+								}/${this.src}"/>
             </video>
             <footer class="photographer-page__gallery__media__footer">
                 <figcaption class="photographer-page__gallery__media__footer__figcaption">${

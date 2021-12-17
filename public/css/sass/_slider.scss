@@ -20,12 +20,47 @@
 			width: 289px;
 			height: 248px;
 			object-fit: cover;
+			border-radius: 5px;
 		}
 		p {
 			color: $primaire1;
 			width: 289px;
 			margin-top: 10px;
 		}
+	}
+	.slider__next {
+		background: url('../assets/icons/chevron-right-solid.svg') center center /
+			100% 100%;
+		border: none;
+		cursor: pointer;
+		position: fixed;
+		right: 20px;
+		text-indent: -10000px;
+		top: 50%;
+		width: 13px;
+	}
+	.slider__previous {
+		background: url('../assets/icons/chevron-left-solid.svg') center center /
+			100% 100%;
+		border: none;
+		cursor: pointer;
+		position: fixed;
+		left: 20px;
+		text-indent: -10000px;
+		top: 50%;
+		width: 13px;
+	}
+
+	.slider__close {
+		background: url(../assets/icons/times-solid.svg) center center / 100% 100%
+			no-repeat;
+		border: none;
+		position: fixed;
+		right: 20px;
+		top: 31%;
+		width: 13px;
+		text-indent: -10000px;
+		z-index: 12;
 	}
 }
 
@@ -41,6 +76,44 @@
 				width: 1050px;
 				font-size: 24px;
 			}
+		}
+
+		.slider__next {
+			background: url('../assets/icons/chevron-right-solid.svg') center center /
+				100% 100%;
+			border: none;
+			cursor: pointer;
+			position: fixed;
+			right: 50px;
+			text-indent: -10000px;
+			top: 50%;
+			width: 48px;
+			height: 29px;
+		}
+		.slider__previous {
+			background: url('../assets/icons/chevron-left-solid.svg') center center /
+				100% 100%;
+			border: none;
+			cursor: pointer;
+			position: fixed;
+			left: 40px;
+			text-indent: -10000px;
+			top: 50%;
+			width: 48px;
+			height: 29px;
+		}
+
+		.slider__close {
+			background: url(../assets/icons/times-solid.svg) center center / 100% 100%
+				no-repeat;
+			border: none;
+			position: fixed;
+			right: 50px;
+			top: 0;
+			width: 42px;
+			height: 42px;
+			text-indent: -10000px;
+			z-index: 12;
 		}
 	}
 }

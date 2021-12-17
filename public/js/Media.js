@@ -43,23 +43,6 @@ class Media {
 		document.querySelector(
 			`.photographer-page__gallery__media__footer__like-section-counter[data-media-id="${this.id}"]`
 		).innerText = this.likes;
-		this.updateLikes();
-	}
-
-	// Update Total Likes
-
-	updateLikes() {
-		const totalLikes = document.querySelectorAll(
-			'.photographer-page__gallery__media__footer__like-section-counter'
-		);
-		let likeSum = 0;
-		totalLikes.forEach(function (like) {
-			let likeUnit = Number(like.textContent);
-			likeSum += likeUnit;
-		});
-		document.querySelector(
-			'.photographer-page__footer__aside__total-likes'
-		).innerText = likeSum;
 	}
 }
 

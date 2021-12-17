@@ -31,9 +31,20 @@ class Portfolio {
 			this.photographer.renderHeader();
 	}
 
+	/**
+	 * Create total Likes section with function totalLikes
+	 * @returns {string} Return user total likes
+	 */
 	displayTotalLikes() {
-		document.querySelector('.photographer-page__footer-section').innerHTML +=
-			this.photographer.renderTotalLikes();
+		document.querySelector('.photographer-page__footer-section').innerHTML = `
+		<section class="photographer-page__footer">
+				<aside class="photographer-page__footer__aside">
+					<p class="photographer-page__footer__aside__total-likes">0</p>
+					<i class="fas fa-heart" aria-hidden="true"></i>
+				</aside>
+				<p class="photographer-page__footer__price" tabindex="7" aria-label="Tarif du photographe ${this.photographer.price} euro par jour">${this.photographer.price}€/jour</p>
+		</section>
+		`;
 	}
 
 	/**
@@ -56,6 +67,7 @@ class Portfolio {
 				let photoId = e.target.getAttribute('data-media-id');
 				let media = this.all.find((media) => media.id == photoId);
 				media.toggleLikes();
+				this.updateTotalLikes();
 			});
 		});
 	}
@@ -144,6 +156,16 @@ class Portfolio {
 				return 0;
 			}
 		});
+	}
+
+	updateTotalLikes() {
+		let count = 0;
+		this.all.forEach((media) => {
+			count += media.likes;
+		});
+		document.querySelector(
+			'.photographer-page__footer__aside__total-likes'
+		).innerText = count;
 	}
 }
 
