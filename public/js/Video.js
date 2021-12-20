@@ -21,7 +21,7 @@ class Video extends Media {
 	render() {
 		return `
 			<figure class="photographer-page__gallery__card">
-            <video>
+            <video controls tabindex="5">
                 <source class="photographer-page__gallery__media" src="./assets/medias/${
 									this.photographer.id
 								}/${this.src}"/>

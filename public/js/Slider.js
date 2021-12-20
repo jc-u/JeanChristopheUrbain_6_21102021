@@ -32,7 +32,7 @@ class Slider {
 		const dom = document.createElement('div');
 		dom.classList.add('slider');
 		dom.innerHTML = `
-			<button class="slider__close" aria-label="Fermer la visualition du média">Fermer</button>
+			<button class="slider__close" aria-label="Fermer la visualisation du média">Fermer</button>
 			<button class="slider__next" aria-label="Image suivante">Suivant</button>
 			<button class="slider__previous" aria-label="Image précédente">Précédent</button>
 			<div class="slider__container" role="dialog" aria-label="">

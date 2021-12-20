@@ -39,7 +39,7 @@ class Portfolio {
 		document.querySelector('.photographer-page__footer-section').innerHTML = `
 		<section class="photographer-page__footer">
 				<aside class="photographer-page__footer__aside">
-					<p class="photographer-page__footer__aside__total-likes">0</p>
+					<p class="photographer-page__footer__aside__total-likes" aria-label="Nombre total de likes tabindes="6"></p>
 					<i class="fas fa-heart" aria-hidden="true"></i>
 				</aside>
 				<p class="photographer-page__footer__price" tabindex="7" aria-label="Tarif du photographe ${this.photographer.price} euro par jour">${this.photographer.price}€/jour</p>

@@ -31,23 +31,25 @@ class Photographer {
 		return `
 
 			<article class="sectionPhotographers__photographer">
-				<a href="./photographer-page.html?id=${this.id}">
+				<a href="./photographer-page.html?id=${
+					this.id
+				}" tabindex="10" aria-label="Aller sur la page de ${this.name}">
 					<div class="photographer">
 					<div class="photographer__photo">
-						<img src="./assets/images/${this.portrait}" alt="Phtographie de profil de ${
+						<img src="./assets/images/${this.portrait}" alt="Photographie de profil de ${
 			this.name
 		}">
 					</div>
-					<div class="photographer__nom">
+					<div class="photographer__name">
 						<h2>${this.name}</h2>
 					</div>
-					 <div class="photographer_lieu">
+					 <div class="photographer_location">
 						<h3>${this.city}, ${this.country}</h3>
 					</div>
-					<div class="photorapher__bio">
+					<div class="photorapher__tagline">
 						<h4>${this.tagline}</h4>
 					</div>
-					<div class="photographer__prix">
+					<div class="photographer__price">
 						<h5>${this.price}€/jour</h5>
 					</div>
 					<div class="photographer__hashtag">
@@ -70,22 +72,26 @@ class Photographer {
 
 	renderHeader() {
 		return `
-		<div class="photographer-page__header__contenu">
-			<h2 class="photographer-page__header__contenu__titre">${this.name}</h2>
-			<h3 class="photographer-page__header__contenu__lieu">${this.city}, ${
+		<div class="photographer-page__header__container">
+			<h2 class="photographer-page__header__container__title">${this.name}</h2>
+			<h3 class="photographer-page__header__container__location">${this.city}, ${
 			this.country
 		}</h3>
-			<h4 class="photographer-page__header__contenu__bio">${this.tagline}</h4>
-			<ul class="photographer-page__header__contenu__hashtag">${this.tags
+			<h4 class="photographer-page__header__container__tagline">${this.tagline}</h4>
+			<ul class="photographer-page__header__container__hashtag">${this.tags
 				.map(
 					(tag) =>
-						`<li class="photographer-page__header__contenu__tags"><a href="./index.html?tag=${tag}">#${tag}</a></li>`
+						`<li class="photographer-page__header__container__tags"><a href="./index.html?tag=${tag}">#${tag}</a></li>`
 				)
 				.join(' ')}</ul>
 		</div>
-		<button class="photographer-page__contact">Contactez-moi</button>
+		<button class="photographer-page__contact" tabindex="3" aria-label="Contacter le photographe ${
+			this.name
+		}">Contactez-moi</button>
 		<div class="photographer-page__photo">
-			<img src="./assets/images/${this.portrait}"
+			<img src="./assets/images/${this.portrait}" alt="Photo de profil de ${
+			this.name
+		}"
 		</div>`;
 	}
 }

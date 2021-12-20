@@ -51,7 +51,7 @@ class List {
 		let html = '';
 
 		this.tags.forEach((tag) => {
-			html += `<a href="#"><li data-filter="${tag}" class="tag ${
+			html += `<a href="#"><li data-filter="${tag}" tabindex="4" aria-label="Trier les photographes par le tag ${tag}" class="tag ${
 				this.selection.has(tag) ? 'active' : ''
 			}">#${tag}</li></a>`;
 		});

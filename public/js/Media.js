@@ -3,7 +3,6 @@
  * @param {Array | Object} data
  * @param {Array | Object} photographer
  * @param {number} id - the media id
- * @param {string} description - the description of the media
  * @param {string} title - the title of the media
  * @param {number} likes - the number of media likes
  * @param {boolean} hasBeenLiked - the media has been liked
@@ -13,7 +12,6 @@
 class Media {
 	constructor(data, photographer) {
 		this.id = data.id;
-		this.description = data.description;
 		this.title = data.title;
 		this.photographer = photographer;
 		this.likes = data.likes;
@@ -24,7 +22,7 @@ class Media {
 
 	renderLikeButton() {
 		return `
-			<button class="photographer-page__gallery__media__footer__like-section-button">
+			<button class="photographer-page__gallery__media__footer__like-section-button" title="Like" tabindex="5" aria-label="Ajouter un Like" aria-hidden="true">
 				<i class="fas fa-heart likeButton" data-media-id="${this.id}"></i>
 			</button>`;
 	}

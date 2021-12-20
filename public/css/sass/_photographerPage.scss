@@ -4,14 +4,14 @@
 		display: flex;
 		padding-bottom: 40px;
 
-		.photographer-page__header__contenu,
+		.photographer-page__header__container,
 		h2,
 		h3,
 		h4 {
 			text-align: left;
 		}
 
-		.photographer-page__header__contenu__hashtag {
+		.photographer-page__header__container__hashtag {
 			justify-content: start;
 			li {
 				margin-right: 5px;
@@ -140,7 +140,7 @@
 			border-radius: 5px;
 			position: relative;
 
-			.photographer-page__header__contenu,
+			.photographer-page__header__container,
 			h2,
 			h3,
 			h4,
@@ -149,7 +149,7 @@
 				margin-left: 50px;
 			}
 
-			.photographer-page__header__contenu__hashtag {
+			.photographer-page__header__container__hashtag {
 				li {
 					border-radius: 10px;
 				}

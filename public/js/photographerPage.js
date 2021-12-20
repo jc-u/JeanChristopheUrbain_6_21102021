@@ -25,10 +25,10 @@ fetch('./data/FishEyeData.json')
 		portfolio.displayMedias();
 		portfolio.displayHeader();
 		portfolio.displayTotalLikes();
+		portfolio.updateTotalLikes();
 		portfolio.listenForLikes();
 		portfolio.listenForDropdownOpening();
 		portfolio.listenForSort();
-		portfolio.updateTotalLikes();
 
 		// MODAL
 

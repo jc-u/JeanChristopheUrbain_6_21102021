@@ -38,7 +38,7 @@ fetch('./data/FishEyeData.json')
 
 function scroll() {
 	window.addEventListener('scroll', () => {
-		const button = document.getElementById('photographers__contenu');
+		const button = document.getElementById('photographers__container');
 		const y = window.scrollY;
 
 		if (y >= 50) {

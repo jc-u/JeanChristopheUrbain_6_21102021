@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,17 +12,24 @@
 		<title>Fisheye - Photographer</title>
 	</head>
 	<body>
+		<!-- HEADER -->
+
 		<header>
 			<!-- LOGO -->
 
 			<div class="header__logo">
-				<a href="index.html" title="HomePage"
+				<a href="index.html" title="HomePage" tabindex="1"
 					><img src="./assets/images/logo.png" alt="FisheEye Home Page"
 				/></a>
 			</div>
 		</header>
+
+		<!-- MAIN PAGE PHOTOGRAPHER -->
 		<main class="photographer-page">
+			<!-- PHOTOGRAPHER HEADER -->
 			<section class="photographer-page__header"></section>
+
+			<!-- SORT -->
 			<section class="photographer-page__filter">
 				<label for="filterMenu">Trier par</label>
 				<button id="select__link">
@@ -30,7 +37,12 @@
 						>Popularité<i class="fas fa-chevron-down"></i
 					></span>
 				</button>
-				<ul role="listbox" aria-label="Order by" class="filterMenu">
+				<ul
+					role="listbox"
+					aria-label="Order by"
+					tabindex="4"
+					class="filterMenu"
+				>
 					<li role="option" class="tri" id="popularity">
 						Popularité<i class="fas fa-chevron-up"></i>
 					</li>
@@ -38,10 +50,15 @@
 					<li role="option" class="tri" id="title">Titre</li>
 				</ul>
 			</section>
+
+			<!-- GALLERY SECTION -->
+
 			<section id="gallery"></section>
 		</main>
 
-		<section id="contact__modal">
+		<!-- MODALE CONTACT -->
+
+		<section id="contact__modal" role="dialog" aria-modal="true">
 			<div class="modal">
 				<div class="modal__title">
 					<h2>Contactez-moi</h2>
@@ -50,18 +67,25 @@
 				<form action="">
 					<div aria-labelledby="coordonnées">
 						<label for="firstname">Prénom</label>
-						<input type="text" name="firstname" id="firstname" />
+						<input type="text" name="firstname" id="firstname" tabindex="3" />
 						<label for="lastname">Nom</label>
-						<input type="text" name="lastname" id="lastname" />
+						<input type="text" name="lastname" id="lastname" tabindex="3" />
 						<label for="email">Email</label>
-						<input type="text" name="email" id="email" />
+						<input type="text" name="email" id="email" tabindex="3" />
 						<label for="message">Votre message</label>
-						<textarea type="text" name="message" id="message"></textarea>
+						<textarea
+							type="text"
+							name="message"
+							id="message"
+							tabindex="3"
+						></textarea>
 					</div>
-					<button class="contact__button">Envoyer</button>
+					<button class="contact__button" tabindex="3">Envoyer</button>
 				</form>
 			</div>
 		</section>
+
+		<!-- COUNTER TOTAL LIKES -->
 
 		<footer class="photographer-page__footer-section"></footer>
 		<script src="./js/tools.js"></script>
