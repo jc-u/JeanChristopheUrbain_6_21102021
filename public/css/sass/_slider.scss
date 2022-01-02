@@ -1,4 +1,5 @@
-.slider {
+#slider__modal {
+	display: none;
 	position: fixed;
 	z-index: 1;
 	left: 0;
@@ -16,16 +17,18 @@
 		width: 100%;
 		min-height: 100vh;
 
-		img {
+		img,
+		video {
 			width: 289px;
 			height: 248px;
 			object-fit: cover;
 			border-radius: 5px;
 		}
-		p {
+		.photographer-page__gallery__media__footer__figcaption {
 			color: $primaire1;
 			width: 289px;
 			margin-top: 10px;
+			font-family: 'DM Sans', sans-serif;
 		}
 	}
 	.slider__next {
@@ -36,7 +39,7 @@
 		position: fixed;
 		right: 20px;
 		text-indent: -10000px;
-		top: 50%;
+		top: 47%;
 		width: 13px;
 	}
 	.slider__previous {
@@ -47,7 +50,7 @@
 		position: fixed;
 		left: 20px;
 		text-indent: -10000px;
-		top: 50%;
+		top: 47%;
 		width: 13px;
 	}
 
@@ -57,24 +60,27 @@
 		border: none;
 		position: fixed;
 		right: 20px;
-		top: 31%;
+		top: 29%;
 		width: 13px;
 		text-indent: -10000px;
 		z-index: 12;
+		cursor: pointer;
 	}
 }
 
 @media (min-width: 1280px) {
-	.slider {
+	#slider__modal {
 		.slider__container {
-			img {
+			img,
+			video {
 				width: 1050px;
 				height: 900px;
 				object-fit: cover;
 			}
-			p {
+			.photographer-page__gallery__media__footer__figcaption {
 				width: 1050px;
 				font-size: 24px;
+				font-family: 'DM Sans', sans-serif;
 			}
 		}
 
@@ -84,9 +90,9 @@
 			border: none;
 			cursor: pointer;
 			position: fixed;
-			right: 50px;
+			right: 5%;
 			text-indent: -10000px;
-			top: 50%;
+			top: 47%;
 			width: 48px;
 			height: 29px;
 		}
@@ -96,9 +102,9 @@
 			border: none;
 			cursor: pointer;
 			position: fixed;
-			left: 40px;
+			left: 4%;
 			text-indent: -10000px;
-			top: 50%;
+			top: 47%;
 			width: 48px;
 			height: 29px;
 		}
@@ -114,6 +120,28 @@
 			height: 42px;
 			text-indent: -10000px;
 			z-index: 12;
+		}
+	}
+}
+@media (min-width: 1920px) {
+	#slider__modal {
+		.slider__container {
+			img {
+			}
+			.photographer-page__gallery__media__footer__figcaption {
+			}
+		}
+
+		.slider__next {
+			right: 19%;
+		}
+		.slider__previous {
+			left: 19%;
+		}
+
+		.slider__close {
+			right: 19%;
+			top: 6%;
 		}
 	}
 }

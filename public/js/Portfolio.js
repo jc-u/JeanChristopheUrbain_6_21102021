@@ -13,6 +13,7 @@ class Portfolio {
 		this.all = [];
 		this.filtered = [];
 		this.photographer = photographer;
+		this.currentIndex = 0;
 	}
 
 	// Display all medias of a photographer
@@ -38,11 +39,11 @@ class Portfolio {
 	displayTotalLikes() {
 		document.querySelector('.photographer-page__footer-section').innerHTML = `
 		<section class="photographer-page__footer">
-				<aside class="photographer-page__footer__aside">
-					<p class="photographer-page__footer__aside__total-likes" aria-label="Nombre total de likes tabindes="6"></p>
+				<aside class="photographer-page__footer__aside" tabindex="0">
+					<p class="photographer-page__footer__aside__total-likes" aria-label="Nombre total de likes tabindex="0">0</p>
 					<i class="fas fa-heart" aria-hidden="true"></i>
 				</aside>
-				<p class="photographer-page__footer__price" tabindex="7" aria-label="Tarif du photographe ${this.photographer.price} euro par jour">${this.photographer.price}€/jour</p>
+				<p class="photographer-page__footer__price" tabindex="0" aria-label="Tarif du photographe ${this.photographer.price} euro par jour">${this.photographer.price}€/jour</p>
 		</section>
 		`;
 	}
@@ -59,32 +60,18 @@ class Portfolio {
 		this.filtered = this.all;
 	}
 
-	// Listen on each like button and see if it was liked or not with the toggleLikes function in the Media.js file
-
-	listenForLikes() {
-		document.querySelectorAll('.likeButton').forEach((button) => {
-			button.addEventListener('click', (e) => {
-				let photoId = e.target.getAttribute('data-media-id');
-				let media = this.all.find((media) => media.id == photoId);
-				media.toggleLikes();
-				this.updateTotalLikes();
-			});
-		});
-	}
-
 	// Click on the dropdown menu to make it appear or disappear and replace the select text when choosing
 
 	listenForDropdownOpening() {
 		const dropDown = document.getElementById('select__link');
 		const menu = document.querySelector('.filterMenu');
-		const item = document.querySelector('.select__link__content');
 		let text = '';
 
-		dropDown.addEventListener('click', function () {
-			if (menu.style.display == 'none') {
+		dropDown.addEventListener('click', () => {
+			if (menu.style.display === 'none') {
 				menu.style.display = 'block';
 				document.querySelectorAll('.tri').forEach((button) => {
-					button.addEventListener('click', (e) => {
+					button.addEventListener('click', () => {
 						text = button.textContent;
 						menu.style.display = 'none';
 						dropDown.innerHTML = `<span class="select__link__content">${text}<i class="fas fa-chevron-down"</span>`;
@@ -94,6 +81,41 @@ class Portfolio {
 				menu.style.display = 'none';
 			}
 		});
+
+		document.querySelector('body').addEventListener('keyup', (e) => {
+			e.preventDefault();
+			const keyCode = e.key;
+			if (keyCode === 'Escape') {
+				menu.style.display = 'none';
+			}
+		});
+	}
+
+	// Listen on each like button and see if it was liked or not with the toggleLikes function in the Media.js file
+
+	listenForLikes() {
+		document.querySelectorAll('.likeButton').forEach((button) => {
+			button.addEventListener('click', (e) => {
+				const photoId = e.target.getAttribute('data-media-id');
+				const media = this.all.find((media) => media.id == photoId);
+				media.toggleLikes();
+				this.updateTotalLikes();
+			});
+		});
+	}
+
+	listenForLikesKeyboard() {
+		document.querySelectorAll('.likeButton').forEach((button) => {
+			button.addEventListener('keydown', (e) => {
+				const photoId = e.target.getAttribute('data-media-id');
+				const media = this.all.find((media) => media.id == photoId);
+				const keyCode = e.key;
+				if (keyCode === 'Enter') {
+					media.toggleLikes();
+					this.updateTotalLikes();
+				}
+			});
+		});
 	}
 
 	// Listening according to the choice of sorting
@@ -101,10 +123,26 @@ class Portfolio {
 	listenForSort() {
 		document.querySelectorAll('.tri').forEach((button) => {
 			button.addEventListener('click', (e) => {
-				let ordre = e.target.getAttribute('id');
-				this.filtered = this.sorting(ordre);
-				this.displayMedias();
-				this.listenForLikes();
+				const ordre = e.target.getAttribute('id');
+				if (ordre === null) {
+					document.querySelector('.filterMenu').style.display = 'none';
+				} else {
+					this.filtered = this.sorting(ordre);
+					this.displayMedias();
+					this.listenForLikes();
+					this.listenForSlider();
+				}
+			});
+
+			button.addEventListener('keydown', (e) => {
+				const keyCode = e.key;
+				if (keyCode === 'Enter') {
+					const ordre = e.target.getAttribute('id');
+					this.filtered = this.sorting(ordre);
+					this.displayMedias();
+					this.listenForLikes();
+					this.listenForSlider();
+				}
 			});
 		});
 	}
@@ -166,6 +204,143 @@ class Portfolio {
 		document.querySelector(
 			'.photographer-page__footer__aside__total-likes'
 		).innerText = count;
+	}
+
+	// SLIDER
+
+	listenForSlider() {
+		document
+			.querySelectorAll('.photographer-page__gallery__media')
+			.forEach((media) => {
+				media.addEventListener('click', (e) => {
+					e.preventDefault();
+					const id = e.target.getAttribute('data-id');
+					this.currentIndex = this.filtered.findIndex(
+						(media) => media.id == id
+					);
+					this.startSlider();
+				});
+			});
+	}
+
+	listenForSliderKeyboard() {
+		document
+			.querySelectorAll('.photographer-page__gallery__media')
+			.forEach((media) => {
+				media.addEventListener('keydown', (e) => {
+					const keyCode = e.key;
+					if (keyCode === 'Enter') {
+						e.preventDefault();
+						const id = e.target.getAttribute('data-id');
+						this.currentIndex = this.filtered.findIndex(
+							(media) => media.id == id
+						);
+						this.startSlider();
+					}
+				});
+			});
+	}
+
+	// CLOSE SLIDER
+
+	closeSlide() {
+		document.getElementById('slider__modal').style.display = 'none';
+		document.querySelector('.photographer-page__gallery__media').focus();
+	}
+
+	// NEXT SLIDE
+
+	nextSlide() {
+		if (this.currentIndex === this.filtered.length - 1) {
+			this.currentIndex = 0;
+		} else {
+			this.currentIndex++;
+		}
+		this.showSlide();
+	}
+
+	// Listen to click slider
+
+	onClickSlider() {
+		document.querySelector('.slider__next').addEventListener('click', () => {
+			this.nextSlide();
+		});
+
+		document
+			.querySelector('.slider__previous')
+			.addEventListener('click', () => {
+				this.previousSlide();
+			});
+
+		document.querySelector('.slider__close').addEventListener('click', () => {
+			this.closeSlide();
+		});
+	}
+
+	// Listen to keyboard slider
+
+	onKeySlider() {
+		document.addEventListener('keydown', (e) => {
+			const keyCode = e.key;
+			if (keyCode === 'ArrowRight') {
+				this.nextSlide();
+			}
+		});
+		document.addEventListener('keydown', (e) => {
+			const keyCode = e.key;
+			if (keyCode === 'ArrowLeft') {
+				this.previousSlide();
+			}
+		});
+		document.addEventListener('keydown', (e) => {
+			const keyCode = e.key;
+			if (keyCode === 'Escape') {
+				this.closeSlide();
+			}
+		});
+
+		document
+			.querySelector('.slider__close')
+			.addEventListener('keydown', (e) => {
+				const keyCode = e.key;
+				if (keyCode === 'Enter') {
+					this.closeSlide();
+				}
+			});
+	}
+
+	// PREVIOUS SLIDE
+
+	previousSlide() {
+		if (this.currentIndex === 0) {
+			this.currentIndex = this.filtered.length - 1;
+		} else {
+			this.currentIndex--;
+		}
+		this.showSlide();
+	}
+
+	// SHOW THE SLIDE TO THE MEDIA
+
+	showSlide() {
+		document.querySelector('.slider__container').innerHTML =
+			this.filtered[this.currentIndex].showInSlider();
+	}
+
+	// START SLIDER
+	startSlider() {
+		document.getElementById('slider__modal').style.display = 'block';
+		document
+			.getElementById('slider__modal')
+			.setAttribute('aria-hidden', 'false');
+		document
+			.querySelector('.photographer-page')
+			.setAttribute('aria-hidden', 'true');
+
+		this.showSlide();
+		document.querySelector('.slider__close').focus();
+		this.onClickSlider();
+		this.onKeySlider();
 	}
 }
 

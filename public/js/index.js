@@ -23,6 +23,7 @@ fetch('./data/FishEyeData.json')
 		list.collectTags();
 		list.build();
 
+		// if a tag is in the URL it is added in the selection and filter
 		if (getFromUrl('tag')) {
 			const tag = getFromUrl('tag');
 			list.selection.add(tag);

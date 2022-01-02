@@ -18,21 +18,27 @@
 			<!-- LOGO -->
 
 			<div class="header__logo">
-				<a href="index.html" title="HomePage" tabindex="1"
+				<a href="index.html" title="HomePage" tabindex="0"
 					><img src="./assets/images/logo.png" alt="FisheEye Home Page"
 				/></a>
 			</div>
 		</header>
 
 		<!-- MAIN PAGE PHOTOGRAPHER -->
-		<main class="photographer-page">
+		<main class="photographer-page" aria-hidden="false">
 			<!-- PHOTOGRAPHER HEADER -->
 			<section class="photographer-page__header"></section>
 
 			<!-- SORT -->
 			<section class="photographer-page__filter">
 				<label for="filterMenu">Trier par</label>
-				<button id="select__link">
+				<button
+					id="select__link"
+					role="button"
+					aria-haspopup="listbox"
+					tabindex="0"
+					aria-expanded="false"
+				>
 					<span class="select__link__content"
 						>Popularité<i class="fas fa-chevron-down"></i
 					></span>
@@ -40,56 +46,115 @@
 				<ul
 					role="listbox"
 					aria-label="Order by"
-					tabindex="4"
+					tabindex="-1"
 					class="filterMenu"
 				>
-					<li role="option" class="tri" id="popularity">
+					<li role="option" class="tri" id="popularity" tabindex="0">
 						Popularité<i class="fas fa-chevron-up"></i>
 					</li>
-					<li role="option" class="tri" id="date">Date</li>
-					<li role="option" class="tri" id="title">Titre</li>
+					<li role="option" class="tri" id="date" tabindex="0">Date</li>
+					<li role="option" class="tri" id="title" tabindex="0		">Titre</li>
 				</ul>
 			</section>
 
 			<!-- GALLERY SECTION -->
 
 			<section id="gallery"></section>
+
+			<!-- COUNTER TOTAL LIKES -->
+
+			<footer class="photographer-page__footer-section"></footer>
 		</main>
 
-		<!-- MODALE CONTACT -->
+		<!-- MODAL SLIDER -->
 
-		<section id="contact__modal" role="dialog" aria-modal="true">
+		<section
+			id="slider__modal"
+			role="dialog"
+			aria-modal="true"
+			aria-hidden="true"
+			aria-describedby="modalSlider"
+			aria-label="image close up view"
+			tabindex="0"
+		>
+			<button
+				class="slider__close"
+				aria-label="Fermer la visualisation du média"
+				tabindex="0"
+			>
+				Fermer
+			</button>
+			<button class="slider__next" aria-label="Image suivante" tabindex="0">
+				Suivant
+			</button>
+			<button
+				class="slider__previous"
+				aria-label="Image précédente"
+				tabindex="0"
+			>
+				Précédent
+			</button>
+			<div class="slider__container" tabindex="0"></div>
+		</section>
+
+		<!-- MODAL CONTACT -->
+
+		<section
+			id="contact__modal"
+			role="dialog"
+			aria-modal="true"
+			aria-describedby="modalContact"
+			tabindex="-1"
+		>
 			<div class="modal">
-				<div class="modal__title">
+				<div class="modal__title" tabindex="0">
 					<h2>Contactez-moi</h2>
 					<i class="fas fa-times"></i>
 				</div>
-				<form action="">
+				<form id="contact__form">
 					<div aria-labelledby="coordonnées">
 						<label for="firstname">Prénom</label>
-						<input type="text" name="firstname" id="firstname" tabindex="3" />
+						<input
+							type="text"
+							name="firstname"
+							id="firstname"
+							aria-labelledby="firstname"
+							tabindex="3"
+						/>
 						<label for="lastname">Nom</label>
-						<input type="text" name="lastname" id="lastname" tabindex="3" />
+						<input
+							type="text"
+							name="lastname"
+							id="lastname"
+							aria-labelledby="lastname"
+							tabindex="3"
+						/>
 						<label for="email">Email</label>
-						<input type="text" name="email" id="email" tabindex="3" />
+						<input
+							type="text"
+							name="email"
+							id="email"
+							aria-labelledby="email"
+							tabindex="3"
+						/>
 						<label for="message">Votre message</label>
 						<textarea
 							type="text"
 							name="message"
 							id="message"
+							aria-labelledby="message"
 							tabindex="3"
 						></textarea>
 					</div>
-					<button class="contact__button" tabindex="3">Envoyer</button>
+					<button type="submit" class="contact__button" tabindex="3">
+						Envoyer
+					</button>
 				</form>
 			</div>
 		</section>
 
-		<!-- COUNTER TOTAL LIKES -->
-
-		<footer class="photographer-page__footer-section"></footer>
+		<!-- Entry point -->
 		<script src="./js/tools.js"></script>
-
 		<script src="./js/photographerPage.js" type="module"></script>
 	</body>
 </html>

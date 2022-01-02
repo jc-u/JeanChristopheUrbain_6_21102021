@@ -1,6 +1,5 @@
 import Portfolio from './Portfolio.js';
 import Photographer from './Photographer.js';
-import Slider from './Slider.js';
 
 /**
  * @const id - Get id in params URL
@@ -14,11 +13,11 @@ fetch('./data/FishEyeData.json')
 	.then((data) => {
 		const item = data.photographers.find((item) => item.id == id);
 
-		let photographer = new Photographer(item);
+		const photographer = new Photographer(item);
 
 		// gallery - Return array of medias, based on photographer id
 		const gallery = data.media.filter((media) => media.photographerId == id);
-		let portfolio = new Portfolio(photographer);
+		const portfolio = new Portfolio(photographer);
 
 		// Scénario
 		portfolio.hydrate(gallery);
@@ -27,13 +26,22 @@ fetch('./data/FishEyeData.json')
 		portfolio.displayTotalLikes();
 		portfolio.updateTotalLikes();
 		portfolio.listenForLikes();
+		portfolio.listenForLikesKeyboard();
 		portfolio.listenForDropdownOpening();
 		portfolio.listenForSort();
+		portfolio.listenForSlider();
+		portfolio.listenForSliderKeyboard();
 
-		// MODAL
+		// MODAL CONTACT
 
 		const modalBtn = document.querySelector('.photographer-page__contact');
+		const main = document.querySelector('.photographer-page');
 		const modal = document.getElementById('contact__modal');
+		const firstName = document.getElementById('firstname');
+		const lastName = document.getElementById('lastname');
+		const email = document.getElementById('email');
+		const message = document.getElementById('message');
+		const close = document.querySelector('.fa-times');
 
 		// launch modal event
 		modalBtn.addEventListener('click', launchModal);
@@ -41,29 +49,47 @@ fetch('./data/FishEyeData.json')
 		// launch modal form
 		function launchModal() {
 			modal.style.display = 'block';
+			main.setAttribute('aria-hidden', 'true');
+			modal.setAttribute('aria-hidden', 'false');
+			close.focus();
 		}
 
-		// close modal
-		const close = document.querySelector('.fa-times');
+		// Listen to close modal
 		close.addEventListener('click', closeModal);
+		// Close modal when escape key is pressed
+		document.addEventListener('keydown', (e) => {
+			const keyCode = e.key;
+			if (keyCode === 'Escape') {
+				closeModal();
+			}
+		});
 
+		// CLOSE MODAL
 		function closeModal() {
 			modal.style.display = 'none';
+			main.setAttribute('aria-hidden', 'false');
+			modal.setAttribute('aria-hidden', 'true');
 		}
 
-		// SLIDER
-
-		const gallerySection = document.getElementById('gallery');
-
-		const links = Array.from(
-			gallerySection.querySelectorAll('img[src$=".jpg"],source[src$=".mp4"]')
-		);
-
-		const slider = links.map((link) => link.getAttribute('src'));
-		links.forEach((link) => {
-			link.addEventListener('click', (e) => {
-				e.preventDefault();
-				new Slider(e.currentTarget.getAttribute('src'), gallery);
-			});
+		const form = document.getElementById('contact__form');
+		form.addEventListener('submit', (e) => {
+			e.preventDefault();
+			submitContactForm(e);
+			document.forms['contact__form'].reset();
+			closeModal();
 		});
+
+		// SUBMIT CONTACT
+		function submitContactForm() {
+			if (
+				firstName.value != '' &&
+				lastName.value != '' &&
+				email.value != '' &&
+				message.value != ''
+			) {
+				console.log(
+					`${firstName.value} ${lastName.value} ${email.value} ${message.value}`
+				);
+			}
+		}
 	});

@@ -18,12 +18,10 @@ class Photo extends Media {
 	 */
 	render() {
 		return `
-		<figure class="photographer-page__gallery__card aria-label="${
-			this.title
-		}" data-id="${this.id}">
-			<img class="photographer-page__gallery__media" tabindex="5" src="./assets/medias/${
+		<figure class="photographer-page__gallery__card" aria-label="${this.title}">
+			<img class="photographer-page__gallery__media" tabindex="0" src="./assets/medias/${
 				this.photographer.id
-			}/${this.src}" alt="${this.title}"/>
+			}/${this.src}" alt="${this.alt}" data-id="${this.id}"/>
 			<footer class="photographer-page__gallery__media__footer">
 				<figcaption class="photographer-page__gallery__media__footer__figcaption">${
 					this.title
@@ -34,6 +32,22 @@ class Photo extends Media {
 					}">${this.likes}</p>
 						${this.renderLikeButton()}
 				</div>
+			</footer>
+		</figure>
+		`;
+	}
+
+	/**
+	 * Create HTML slider element
+	 * @returns {HTMLelement}
+	 */
+
+	showInSlider() {
+		return `
+		<figure class="photographer-page__gallery__card" aria-label="${this.title}">
+			<img class="photographer-page__gallery__media" tabindex="0" src="./assets/medias/${this.photographer.id}/${this.src}" alt="${this.alt}" data-id="${this.id}"/>
+			<footer class="photographer-page__gallery__media__footer">
+				<figcaption class="photographer-page__gallery__media__footer__figcaption">${this.title}</figcaption>
 			</footer>
 		</figure>
 		`;

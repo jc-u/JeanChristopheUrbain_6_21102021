@@ -31,38 +31,39 @@ class Photographer {
 		return `
 
 			<article class="sectionPhotographers__photographer">
-				<a href="./photographer-page.html?id=${
-					this.id
-				}" tabindex="10" aria-label="Aller sur la page de ${this.name}">
+
 					<div class="photographer">
-					<div class="photographer__photo">
-						<img src="./assets/images/${this.portrait}" alt="Photographie de profil de ${
+					<a href="./photographer-page.html?id=${
+						this.id
+					}" aria-label="Aller sur la page de ${this.name}"  tabindex="0">
+						<div class="photographer__photo">
+							<img src="./assets/images/${this.portrait}" alt="Photographie de profil de ${
 			this.name
 		}">
+
+						</div><h2>${this.name}</h2></a>
+						<div class="photographer_location">
+							<h3>${this.city}, ${this.country}</h3>
+						</div>
+						<div class="photorapher__tagline">
+							<h4>${this.tagline}</h4>
+						</div>
+						<div class="photographer__price">
+							<h5>${this.price}€/jour</h5>
+						</div>
+
+						<div class="photographer__hashtag">
+							<ul class="filter">${this.tags
+								.map(
+									(tag) =>
+										`<a href="#" tabindex="0" data-filter="${tag}" class="tag" >#${tag}</a>`
+								)
+								.join('')}</ul>
+						</div>
 					</div>
-					<div class="photographer__name">
-						<h2>${this.name}</h2>
-					</div>
-					 <div class="photographer_location">
-						<h3>${this.city}, ${this.country}</h3>
-					</div>
-					<div class="photorapher__tagline">
-						<h4>${this.tagline}</h4>
-					</div>
-					<div class="photographer__price">
-						<h5>${this.price}€/jour</h5>
-					</div>
-					<div class="photographer__hashtag">
-						<ul class="filter">${this.tags
-							.map(
-								(tag) =>
-									`<a href="#"><li data-filter="${tag}" class="tag">#${tag}</li></a>`
-							)
-							.join('')}</ul>
-					</div>
-				</div>
+
 			</article>
-		</a>`;
+		`;
 	}
 
 	/**
@@ -85,7 +86,7 @@ class Photographer {
 				)
 				.join(' ')}</ul>
 		</div>
-		<button class="photographer-page__contact" tabindex="3" aria-label="Contacter le photographe ${
+		<button class="photographer-page__contact" tabindex="0" aria-label="Contacter le photographe ${
 			this.name
 		}">Contactez-moi</button>
 		<div class="photographer-page__photo">

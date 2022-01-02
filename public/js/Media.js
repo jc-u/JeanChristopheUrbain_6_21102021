@@ -13,6 +13,7 @@ class Media {
 	constructor(data, photographer) {
 		this.id = data.id;
 		this.title = data.title;
+		this.alt = data.alt;
 		this.photographer = photographer;
 		this.likes = data.likes;
 		this.hasBeenLiked = false;
@@ -22,8 +23,8 @@ class Media {
 
 	renderLikeButton() {
 		return `
-			<button class="photographer-page__gallery__media__footer__like-section-button" title="Like" tabindex="5" aria-label="Ajouter un Like" aria-hidden="true">
-				<i class="fas fa-heart likeButton" data-media-id="${this.id}"></i>
+			<button class="photographer-page__gallery__media__footer__like-section-button" tabindex="-1">
+				<i class="fas fa-heart likeButton" data-media-id="${this.id}" tabindex="0" title="Like" aria-label="Ajouter un Like" aria-hidden="true"></i>
 			</button>`;
 	}
 

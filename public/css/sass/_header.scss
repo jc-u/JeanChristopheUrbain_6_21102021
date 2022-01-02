@@ -13,18 +13,21 @@ header {
 		margin-bottom: 50px;
 		ul {
 			a {
+				display: block;
 				margin: 3px;
 				font-size: 12px;
 				font-weight: medium;
-				li {
-					padding: 2px 5px;
-					border-radius: 10px;
-					&:hover {
-						background-color: $primaire1;
-						color: white;
-						transition: 300ms;
-					}
+				color: $primaire1;
+				border: solid 1px #c4c4c4;
+
+				padding: 2px 5px;
+				border-radius: 10px;
+				&:hover {
+					background-color: $primaire1;
+					color: white;
+					transition: 300ms;
 				}
+
 				.active {
 					background-color: $primaire1;
 					color: white;

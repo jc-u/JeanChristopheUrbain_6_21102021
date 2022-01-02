@@ -172,17 +172,17 @@ header nav {
 }
 
 header nav ul a {
+  display: block;
   margin: 3px;
   font-size: 12px;
   font-weight: medium;
-}
-
-header nav ul a li {
+  color: #901c1c;
+  border: solid 1px #c4c4c4;
   padding: 2px 5px;
   border-radius: 10px;
 }
 
-header nav ul a li:hover {
+header nav ul a:hover {
   background-color: #901c1c;
   color: white;
   -webkit-transition: 300ms;
@@ -260,17 +260,17 @@ main #photographers .sectionPhotographers__photographer .photographer .photograp
 }
 
 main #photographers .sectionPhotographers__photographer .photographer .photographer__hashtag .filter a {
+  display: block;
   margin: 3px;
   font-size: 12px;
   font-weight: medium;
-}
-
-main #photographers .sectionPhotographers__photographer .photographer .photographer__hashtag .filter a li {
+  color: #901c1c;
+  border: solid 1px #c4c4c4;
   padding: 2px 5px;
   border-radius: 10px;
 }
 
-main #photographers .sectionPhotographers__photographer .photographer .photographer__hashtag .filter a li:hover {
+main #photographers .sectionPhotographers__photographer .photographer .photographer__hashtag .filter a:hover {
   background-color: #901c1c;
   color: white;
   -webkit-transition: 300ms;
@@ -452,6 +452,7 @@ main #photographers .sectionPhotographers__photographer .photographer .photograp
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .photographer-page #gallery .photographer-page__gallery__card .photographer-page__gallery__media__footer {
@@ -567,6 +568,7 @@ main #photographers .sectionPhotographers__photographer .photographer .photograp
     cursor: pointer;
     border-radius: 5px;
     font-weight: bold;
+    font-family: 'DM Sans', sans-serif;
   }
   .photographer-page .photographer-page__filter .filterMenu {
     display: none;
@@ -613,14 +615,23 @@ main #photographers .sectionPhotographers__photographer .photographer .photograp
     background-color: #db8876;
   }
   .photographer-page #gallery {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    gap: px px;
+        grid-template-areas: '. . .' '. . .' '. . .';
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    justify-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 1250px;
   }
   .photographer-page #gallery .photographer-page__gallery__card img,
   .photographer-page #gallery .photographer-page__gallery__card video {
@@ -630,13 +641,13 @@ main #photographers .sectionPhotographers__photographer .photographer .photograp
   .photographer-page #gallery .photographer-page__gallery__card .photographer-page__gallery__media__footer {
     margin-bottom: 30px;
   }
-  .photographer-page__footer-section {
+  .photographer-page .photographer-page__footer-section {
     display: block;
     position: fixed;
     bottom: 0;
     right: 0;
   }
-  .photographer-page__footer-section .photographer-page__footer {
+  .photographer-page .photographer-page__footer-section .photographer-page__footer {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -650,7 +661,7 @@ main #photographers .sectionPhotographers__photographer .photographer .photograp
     background-color: #db8876;
     border-radius: 5px 5px 0 0;
   }
-  .photographer-page__footer-section .photographer-page__footer .photographer-page__footer__aside {
+  .photographer-page .photographer-page__footer-section .photographer-page__footer .photographer-page__footer__aside {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -659,13 +670,13 @@ main #photographers .sectionPhotographers__photographer .photographer .photograp
             align-items: center;
     font-size: 24px;
   }
-  .photographer-page__footer-section .photographer-page__footer .photographer-page__footer__aside .fa-heart {
+  .photographer-page .photographer-page__footer-section .photographer-page__footer .photographer-page__footer__aside .fa-heart {
     margin-left: 5px;
     display: inline-block;
     -webkit-transform: scale(0.875, 1);
             transform: scale(0.875, 1);
   }
-  .photographer-page__footer-section .photographer-page__footer p {
+  .photographer-page .photographer-page__footer-section .photographer-page__footer p {
     font-size: 24px;
   }
 }
@@ -906,7 +917,8 @@ main #photographers .sectionPhotographers__photographer .photographer .photograp
   }
 }
 
-.slider {
+#slider__modal {
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -917,7 +929,7 @@ main #photographers .sectionPhotographers__photographer .photographer .photograp
   background: rgba(196, 196, 196, 0.4);
 }
 
-.slider .slider__container {
+#slider__modal .slider__container {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -935,7 +947,8 @@ main #photographers .sectionPhotographers__photographer .photographer .photograp
   min-height: 100vh;
 }
 
-.slider .slider__container img {
+#slider__modal .slider__container img,
+#slider__modal .slider__container video {
   width: 289px;
   height: 248px;
   -o-object-fit: cover;
@@ -943,79 +956,83 @@ main #photographers .sectionPhotographers__photographer .photographer .photograp
   border-radius: 5px;
 }
 
-.slider .slider__container p {
+#slider__modal .slider__container .photographer-page__gallery__media__footer__figcaption {
   color: #901c1c;
   width: 289px;
   margin-top: 10px;
+  font-family: 'DM Sans', sans-serif;
 }
 
-.slider .slider__next {
+#slider__modal .slider__next {
   background: url("../assets/icons/chevron-right-solid.svg") center center/100% 100%;
   border: none;
   cursor: pointer;
   position: fixed;
   right: 20px;
   text-indent: -10000px;
-  top: 50%;
+  top: 47%;
   width: 13px;
 }
 
-.slider .slider__previous {
+#slider__modal .slider__previous {
   background: url("../assets/icons/chevron-left-solid.svg") center center/100% 100%;
   border: none;
   cursor: pointer;
   position: fixed;
   left: 20px;
   text-indent: -10000px;
-  top: 50%;
+  top: 47%;
   width: 13px;
 }
 
-.slider .slider__close {
+#slider__modal .slider__close {
   background: url(../assets/icons/times-solid.svg) center center/100% 100% no-repeat;
   border: none;
   position: fixed;
   right: 20px;
-  top: 31%;
+  top: 29%;
   width: 13px;
   text-indent: -10000px;
   z-index: 12;
+  cursor: pointer;
 }
 
 @media (min-width: 1280px) {
-  .slider .slider__container img {
+  #slider__modal .slider__container img,
+  #slider__modal .slider__container video {
     width: 1050px;
     height: 900px;
     -o-object-fit: cover;
        object-fit: cover;
   }
-  .slider .slider__container p {
+  #slider__modal .slider__container .photographer-page__gallery__media__footer__figcaption {
     width: 1050px;
     font-size: 24px;
+    font-family: 'DM Sans', sans-serif;
   }
-  .slider .slider__next {
+  #slider__modal .slider__next {
     background: url("../assets/icons/chevron-right-solid.svg") center center/100% 100%;
     border: none;
     cursor: pointer;
     position: fixed;
-    right: 50px;
+    right: 5%;
     text-indent: -10000px;
-    top: 50%;
+    top: 47%;
     width: 48px;
     height: 29px;
   }
-  .slider .slider__previous {
+  #slider__modal .slider__previous {
     background: url("../assets/icons/chevron-left-solid.svg") center center/100% 100%;
     border: none;
     cursor: pointer;
     position: fixed;
-    left: 40px;
+    left: 4%;
     text-indent: -10000px;
-    top: 50%;
+    top: 47%;
     width: 48px;
     height: 29px;
   }
-  .slider .slider__close {
+  #slider__modal .slider__close {
     background: url(../assets/icons/times-solid.svg) center center/100% 100% no-repeat;
     border: none;
     position: fixed;
@@ -1025,6 +1042,19 @@ main #photographers .sectionPhotographers__photographer .photographer .photograp
     height: 42px;
     text-indent: -10000px;
     z-index: 12;
+  }
+}
+
+@media (min-width: 1920px) {
+  #slider__modal .slider__next {
+    right: 19%;
+  }
+  #slider__modal .slider__previous {
+    left: 19%;
+  }
+  #slider__modal .slider__close {
+    right: 19%;
+    top: 6%;
   }
 }
 /*# sourceMappingURL=styles.css.map */
