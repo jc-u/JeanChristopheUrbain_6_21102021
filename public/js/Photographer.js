@@ -56,7 +56,7 @@ class Photographer {
 							<ul class="filter">${this.tags
 								.map(
 									(tag) =>
-										`<a href="#" tabindex="0" data-filter="${tag}" class="tag" >#${tag}</a>`
+										`<a href="#" tabindex="0" data-filter="${tag}" class="tag" ><div id="1">tag</div></a>`
 								)
 								.join('')}</ul>
 						</div>
