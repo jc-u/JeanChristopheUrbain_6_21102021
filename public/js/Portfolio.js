@@ -41,7 +41,7 @@ class Portfolio {
 		<section class="photographer-page__footer">
 				<aside class="photographer-page__footer__aside" tabindex="0">
 					<p class="photographer-page__footer__aside__total-likes" aria-label="Nombre total de likes" tabindex="0">0</p>
-					<i class="fas fa-heart" aria-hidden="true"></i>
+					<i class="fas fa-heart"></i>
 				</aside>
 				<p class="photographer-page__footer__price" tabindex="0" aria-label="Tarif du photographe ${this.photographer.price} euro par jour">${this.photographer.price}€/jour</p>
 		</section>
