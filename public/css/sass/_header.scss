@@ -11,7 +11,10 @@ header {
 
 	nav {
 		margin-bottom: 50px;
-		ul {
+		#tags {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
 			a {
 				display: block;
 				margin: 3px;

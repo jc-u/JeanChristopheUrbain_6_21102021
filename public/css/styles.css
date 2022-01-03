@@ -171,7 +171,18 @@ header nav {
   margin-bottom: 50px;
 }
 
-header nav ul a {
+header nav #tags {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+header nav #tags a {
   display: block;
   margin: 3px;
   font-size: 12px;
@@ -182,14 +193,14 @@ header nav ul a {
   border-radius: 10px;
 }
 
-header nav ul a:hover {
+header nav #tags a:hover {
   background-color: #901c1c;
   color: white;
   -webkit-transition: 300ms;
   transition: 300ms;
 }
 
-header nav ul a .active {
+header nav #tags a .active {
   background-color: #901c1c;
   color: white;
 }
@@ -257,6 +268,17 @@ main #photographers .sectionPhotographers__photographer .photographer .photograp
 main #photographers .sectionPhotographers__photographer .photographer .photographer__hashtag {
   margin-top: 10px;
   margin-bottom: 30px;
+}
+
+main #photographers .sectionPhotographers__photographer .photographer .photographer__hashtag .filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 main #photographers .sectionPhotographers__photographer .photographer .photographer__hashtag .filter a {

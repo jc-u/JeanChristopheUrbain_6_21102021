@@ -24,7 +24,7 @@ class Media {
 	renderLikeButton() {
 		return `
 			<button class="photographer-page__gallery__media__footer__like-section-button" tabindex="-1">
-				<i class="fas fa-heart likeButton" data-media-id="${this.id}" tabindex="0" title="Like" aria-label="Ajouter un Like" aria-hidden="true"></i>
+				<i class="fas fa-heart likeButton" data-media-id="${this.id}" tabindex="0" title="Like" aria-label="Ajouter un Like"></i>
 			</button>`;
 	}
 

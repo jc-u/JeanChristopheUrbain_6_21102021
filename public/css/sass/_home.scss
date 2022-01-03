@@ -31,6 +31,9 @@ main {
 					margin-top: 10px;
 					margin-bottom: 30px;
 					.filter {
+						display: flex;
+						justify-content: center;
+						flex-wrap: wrap;
 						a {
 							display: block;
 							margin: 3px;

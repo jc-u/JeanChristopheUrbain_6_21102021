@@ -53,12 +53,12 @@ class Photographer {
 						</div>
 
 						<div class="photographer__hashtag">
-							<ul class="filter">${this.tags
+							<div class="filter">${this.tags
 								.map(
 									(tag) =>
-										`<a href="#" tabindex="0" data-filter="${tag}" class="tag" ><div id="1">#${tag}</div></a>`
+										`<a href="#" tabindex="0" data-filter="${tag}" class="tag" ><div class="1">#${tag}</div></a>`
 								)
-								.join('')}</ul>
+								.join('')}</div>
 						</div>
 					</div>
 
