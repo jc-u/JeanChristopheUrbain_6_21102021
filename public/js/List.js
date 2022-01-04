@@ -1,5 +1,5 @@
 /**
- * Represents a photographer.
+ * Represent a list of photographers and a list of tags.
  * @constructor
  * @param {array} all - list all photographers
  * @param {array} filtered - list filtered tags
