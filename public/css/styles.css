@@ -200,7 +200,7 @@ header nav #tags a:hover {
   transition: 300ms;
 }
 
-header nav #tags a .active {
+header nav #tags .active {
   background-color: #901c1c;
   color: white;
 }
