@@ -41,7 +41,9 @@ fetch('./data/FishEyeData.json')
 		const lastName = document.getElementById('lastname');
 		const email = document.getElementById('email');
 		const message = document.getElementById('message');
-		const close = document.querySelector('.fa-times');
+		const close = document.querySelector('.close');
+		const focusableSelector = 'button, a, input, textarea';
+		let focusables = [];
 
 		// launch modal event
 		modalBtn.addEventListener('click', launchModal);
@@ -51,7 +53,26 @@ fetch('./data/FishEyeData.json')
 			modal.style.display = 'block';
 			main.setAttribute('aria-hidden', 'true');
 			modal.setAttribute('aria-hidden', 'false');
+			modal.setAttribute('aria-modal', 'true');
 			close.focus();
+			focusables = Array.from(modal.querySelectorAll(focusableSelector));
+			window.addEventListener('keydown', (e) => {
+				if (e.key === 'Tab' && modal.style.display === 'block') {
+					focusInModal(e);
+				}
+			});
+		}
+
+		function focusInModal(e) {
+			e.preventDefault();
+			let index = focusables.findIndex(
+				(f) => f === modal.querySelector(':focus')
+			);
+			index++;
+			if (index >= focusables.length) {
+				index = 0;
+			}
+			focusables[index].focus();
 		}
 
 		// Listen to close modal

@@ -25,6 +25,10 @@ class Video extends Media {
 				this.id
 			}">
       	 <source src="./assets/medias/${this.photographer.id}/${this.src}"/>
+				 <track default
+           kind="captions"
+           srclang="fr"
+           />
       </video>
       <footer class="photographer-page__gallery__media__footer">
       	<figcaption class="photographer-page__gallery__media__footer__figcaption">${

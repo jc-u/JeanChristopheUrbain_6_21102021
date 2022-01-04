@@ -502,6 +502,7 @@ main #photographers .sectionPhotographers__photographer .photographer .photograp
   font-size: 14px;
   color: #901c1c;
   margin-right: 10px;
+  background-color: white;
 }
 
 .photographer-page #gallery .photographer-page__gallery__card .photographer-page__gallery__media__footer .photographer-page__gallery__media__footer__like-section .photographer-page__gallery__media__footer__like-section-button {
@@ -748,11 +749,22 @@ main #photographers .sectionPhotographers__photographer .photographer .photograp
   margin-bottom: 20px;
 }
 
-#contact__modal .modal .modal__title i {
+#contact__modal .modal .modal__title .close {
   cursor: pointer;
   position: absolute;
   top: 20px;
   right: 30px;
+  width: 32px;
+  height: 32px;
+  background-color: transparent;
+  border: none;
+}
+
+#contact__modal .modal .modal__title .close i {
+  cursor: pointer;
+  position: absolute;
+  top: -1px;
+  right: 3px;
   font-size: 32px;
   color: white;
 }

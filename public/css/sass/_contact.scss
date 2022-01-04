@@ -32,14 +32,24 @@
 				padding: 0;
 				margin-bottom: 20px;
 			}
-
-			i {
+			.close {
 				cursor: pointer;
 				position: absolute;
 				top: 20px;
 				right: 30px;
-				font-size: 32px;
-				color: white;
+				width: 32px;
+				height: 32px;
+				background-color: transparent;
+				border: none;
+
+				i {
+					cursor: pointer;
+					position: absolute;
+					top: -1px;
+					right: 3px;
+					font-size: 32px;
+					color: white;
+				}
 			}
 		}
 

@@ -1,5 +1,8 @@
 import MediaFactory from './MediaFactory.js';
 
+const focusableSelector = 'button';
+let focusables = [];
+
 /**
  * Represents a photographer's portfolio .
  * @constructor
@@ -40,10 +43,10 @@ class Portfolio {
 		document.querySelector('.photographer-page__footer-section').innerHTML = `
 		<section class="photographer-page__footer">
 				<aside class="photographer-page__footer__aside" tabindex="0">
-					<p class="photographer-page__footer__aside__total-likes" aria-label="Nombre total de likes" tabindex="0">0</p>
+					<p class="photographer-page__footer__aside__total-likes" tabindex="0">0</p>
 					<i class="fas fa-heart"></i>
 				</aside>
-				<p class="photographer-page__footer__price" tabindex="0" aria-label="Tarif du photographe ${this.photographer.price} euro par jour">${this.photographer.price}€/jour</p>
+				<p class="photographer-page__footer__price" tabindex="0">${this.photographer.price}€/jour</p>
 		</section>
 		`;
 	}
@@ -99,6 +102,7 @@ class Portfolio {
 				const photoId = e.target.getAttribute('data-media-id');
 				const media = this.all.find((media) => media.id == photoId);
 				media.toggleLikes();
+				console.log(media);
 				this.updateTotalLikes();
 			});
 		});
@@ -107,11 +111,10 @@ class Portfolio {
 	listenForLikesKeyboard() {
 		document.querySelectorAll('.likeButton').forEach((button) => {
 			button.addEventListener('keydown', (e) => {
-				const photoId = e.target.getAttribute('data-media-id');
-				const media = this.all.find((media) => media.id == photoId);
 				const keyCode = e.key;
 				if (keyCode === 'Enter') {
-					media.toggleLikes();
+					const photoId = e.target.getAttribute('data-media-id');
+					const media = this.all.find((media) => media.id == photoId);
 					this.updateTotalLikes();
 				}
 			});
@@ -341,6 +344,33 @@ class Portfolio {
 		document.querySelector('.slider__close').focus();
 		this.onClickSlider();
 		this.onKeySlider();
+
+		focusables = Array.from(
+			document
+				.getElementById('slider__modal')
+				.querySelectorAll(focusableSelector)
+		);
+		window.addEventListener('keydown', (e) => {
+			if (
+				e.key === 'Tab' &&
+				document.getElementById('slider__modal').style.display === 'block'
+			) {
+				this.focusInModal(e);
+			}
+		});
+	}
+
+	focusInModal(e) {
+		e.preventDefault();
+		let index = focusables.findIndex(
+			(f) =>
+				f === document.getElementById('slider__modal').querySelector(':focus')
+		);
+		index++;
+		if (index >= focusables.length) {
+			index = 0;
+		}
+		focusables[index].focus();
 	}
 }
 
