@@ -102,7 +102,6 @@ class Portfolio {
 				const photoId = e.target.getAttribute('data-media-id');
 				const media = this.all.find((media) => media.id == photoId);
 				media.toggleLikes();
-				console.log(media);
 				this.updateTotalLikes();
 			});
 		});
