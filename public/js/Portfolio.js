@@ -133,6 +133,7 @@ class Portfolio {
 					this.displayMedias();
 					this.listenForLikes();
 					this.listenForSlider();
+					this.listenForSliderKeyboard();
 				}
 			});
 
@@ -144,6 +145,7 @@ class Portfolio {
 					this.displayMedias();
 					this.listenForLikes();
 					this.listenForSlider();
+					this.listenForSliderKeyboard();
 				}
 			});
 		});
